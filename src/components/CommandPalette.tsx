@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Terminal, ArrowRight, X, Volume2, Sparkles, FileText, Mail, ExternalLink, Code } from 'lucide-react';
+import { Search, Terminal, ArrowRight, X, Volume2, Sparkles, FileText, Mail, ExternalLink, Code, Gamepad2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { soundFx } from '../utils/soundEffects';
 
@@ -50,6 +50,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       icon: <Terminal className="w-4 h-4 text-purple-400" />,
       action: () => onSelectSection('architecture'),
       shortcut: 'G A',
+    },
+    {
+      id: 'nav-games',
+      label: 'Explore Shipped Games Portfolio (CoinBox Studio / Konceptik)',
+      category: 'Navigation',
+      icon: <Gamepad2 className="w-4 h-4 text-pink-400" />,
+      action: () => onSelectSection('games'),
+      shortcut: 'G G',
     },
     {
       id: 'nav-experience',

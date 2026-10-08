@@ -42,3 +42,13 @@ export interface Certification {
   credentialUrl?: string;
   highlight?: boolean;
 }
+
+export interface GameProject {
+  id: string;
+  title: string;
+  type: 'Slot' | 'Scratch' | 'Keno';
+  background: string;
+  previewUrl?: string;
+  lines?: number;
+  featured?: boolean;
+}

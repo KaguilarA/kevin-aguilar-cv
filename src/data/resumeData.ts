@@ -1,4 +1,4 @@
-import type { Experience, ArchitectureItem, SkillCategory, Certification } from '../types/resume';
+import type { Experience, ArchitectureItem, SkillCategory, Certification, GameProject } from '../types/resume';
 
 export const PERSONAL_INFO = {
   name: 'Kevin Aguilar',
@@ -69,22 +69,22 @@ export const EXPERIENCES: Experience[] = [
   {
     id: 'konceptik',
     role: 'Code Architect & Lead Graphics Engineer',
-    company: 'Konceptik Studio',
+    company: 'Konceptik Studio (CoinBox Studio)',
     period: 'May 2018 – Sept 2022',
     location: 'San José, Costa Rica',
     type: 'Full-time',
     summary:
-      'Designed and engineered custom 2D/3D JavaScript rendering engines, WebGL pipelines, and cloud asset pipelines.',
+      'Designed and engineered custom 2D/3D JavaScript rendering engines, WebGL pipelines, and cloud asset pipelines powering 35+ commercial slot and scratch games for CoinBox Studio (coinboxstudio.com).',
     highlights: [
-      'Designed and led the architectural foundation of custom JavaScript interactive rendering engines and Canvas API systems from scratch.',
+      'Designed and led the architectural foundation of custom JavaScript interactive rendering engines and Canvas API systems powering 35+ commercial games for CoinBox Studio.',
       'Implemented high-performance real-time graphics pipelines using PIXI.js and WebGL for interactive web experiences running locked at 60 FPS.',
-      'Engineered cloud-hosted application delivery workflows and optimized multi-region asset distribution on AWS S3.',
+      'Engineered cloud-hosted application delivery workflows and optimized multi-region asset distribution on AWS S3 CDN (cdn.coinboxstudio.com).',
       'Mentored junior and mid-level software engineers on JavaScript runtime mechanics, memory management, garbage collection avoidance, and design patterns.',
     ],
     technologies: ['JavaScript ES6+', 'TypeScript', 'Canvas 2D API', 'PIXI.js', 'WebGL', 'Node.js', 'Express.js', 'AWS S3'],
     metrics: [
       { label: 'Target Frame Rate', value: '60 FPS' },
-      { label: 'Asset Load Time', value: '-60%' },
+      { label: 'Shipped Games', value: '35+' },
     ],
   },
   {
@@ -277,5 +277,85 @@ export const CERTIFICATIONS: Certification[] = [
     title: 'Aprende Programación en Java (de Básico a Avanzado) (56 hrs)',
     issuer: 'Certified Training',
     year: '2026',
+  },
+];
+
+export const COINBOX_GAMES: GameProject[] = [
+  {
+    id: 'battleBarn',
+    title: 'Battle Barn Slot',
+    type: 'Slot',
+    lines: 25,
+    background: 'https://cdn.coinboxstudio.com/games/battlebarn/card.jpg',
+    previewUrl: 'https://cdn.coinboxstudio.com/previews/battleBarn.mp4',
+    featured: true,
+  },
+  {
+    id: 'piratesOfTheSea',
+    title: 'Pirates Of The Sea Slot',
+    type: 'Slot',
+    background: 'https://cdn.coinboxstudio.com/landing/PiratesoftheSea.jpg',
+    previewUrl: 'https://cdn.coinboxstudio.com/previews/PiratesOftheSea.mp4',
+    featured: true,
+  },
+  {
+    id: 'cleopatrasLegacy',
+    title: "Cleopatra's Legacy",
+    type: 'Slot',
+    background: 'https://cdn.coinboxstudio.com/games/cleopatrasLegacy/cleopatrasLegacy-.jpg',
+    previewUrl: 'https://cdn.coinboxstudio.com/previews/cleopatrasLegacy.mp4',
+    featured: true,
+  },
+  {
+    id: 'retro80',
+    title: "Retro 80's Slot",
+    type: 'Slot',
+    background: 'https://cdn.coinboxstudio.com/games/retro80/card.jpg',
+    previewUrl: 'https://cdn.coinboxstudio.com/previews/retro80s.mp4',
+    featured: true,
+  },
+  {
+    id: 'mysteryOfDracula',
+    title: 'Mystery of Dracula Slot',
+    type: 'Slot',
+    background: 'https://cdn.coinboxstudio.com/games/mysteryOfDracula/card.jpg',
+  },
+  {
+    id: 'mermaidsSeaTreasures',
+    title: 'Mermaids Sea Treasures',
+    type: 'Slot',
+    background: 'https://cdn.coinboxstudio.com/games/mermaidsSeaTreasures/mermaidsSeatreasures.jpg',
+  },
+  {
+    id: 'jungleGems',
+    title: 'Jungle Gems Scratch',
+    type: 'Scratch',
+    background: 'https://cdn.coinboxstudio.com/jungleGems/jungleCard.jpg',
+    featured: true,
+  },
+  {
+    id: 'oldTownCowboys',
+    title: 'Old Town Cowboys Scratch',
+    type: 'Scratch',
+    background: 'https://cdn.coinboxstudio.com/landing/oldTownCowboys/oldTownCowboyscard.jpg',
+    featured: true,
+  },
+  {
+    id: 'mysteryOfAnubis',
+    title: 'Mystery of Anubis Scratch',
+    type: 'Scratch',
+    background: 'https://cdn.coinboxstudio.com/mysteryofAnubis/anubisCard.jpg',
+  },
+  {
+    id: 'kenoGame',
+    title: 'Jungle Gems Keno',
+    type: 'Keno',
+    background: 'https://cdn.coinboxstudio.com/landing/jungleGemsKeno.jpg',
+  },
+  {
+    id: 'goldenStarKeno',
+    title: 'Golden Star Keno',
+    type: 'Keno',
+    background: 'https://cdn.coinboxstudio.com/landing/instantKenoStarCard.jpg',
   },
 ];

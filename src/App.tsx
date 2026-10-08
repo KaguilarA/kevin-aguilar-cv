@@ -3,6 +3,7 @@ import { HeaderNav } from './components/HeaderNav';
 import { HeroSection } from './components/HeroSection';
 import { InteractiveCanvas } from './components/InteractiveCanvas';
 import { ArchitectureShowcase } from './components/ArchitectureShowcase';
+import { GamesShowcase } from './components/GamesShowcase';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { SkillsMatrix } from './components/SkillsMatrix';
 import { LivePerformanceDemo } from './components/LivePerformanceDemo';
@@ -86,6 +87,9 @@ export function App() {
 
         {/* Systems Architecture Showcase */}
         <ArchitectureShowcase />
+
+        {/* Shipped Games Showcase (Konceptik & CoinBox Studio) */}
+        <GamesShowcase />
 
         {/* Professional Experience Timeline */}
         <ExperienceTimeline />

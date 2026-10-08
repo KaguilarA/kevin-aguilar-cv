@@ -19,6 +19,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
 }) => {
   const navLinks = [
     { id: 'architecture', label: 'Architecture' },
+    { id: 'games', label: 'Games' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
     { id: 'profiler', label: 'Live Profiler' },
