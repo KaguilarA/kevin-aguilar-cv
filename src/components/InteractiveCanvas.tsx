@@ -228,52 +228,57 @@ export const InteractiveCanvas: React.FC = () => {
   }, [particleCount, canvasMode]);
 
   return (
-    <div
-      className="relative w-full h-[400px] md:h-[480px] rounded-2xl overflow-hidden border border-slate-800 bg-[#090a0f] shadow-2xl group transition-all duration-300"
-    >
-      <canvas ref={canvasRef} className="w-full h-full block cursor-crosshair" />
+    <div className="space-y-2.5">
+      <div
+        className="relative w-full h-[400px] md:h-[480px] rounded-2xl overflow-hidden border border-slate-800 bg-[#090a0f] shadow-2xl group transition-all duration-300"
+      >
+        <canvas ref={canvasRef} className="w-full h-full block cursor-crosshair" />
 
-      {/* Real-Time Engine HUD Overlay */}
-      <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2 pointer-events-none select-none">
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-emerald-400 shadow-lg">
-          <Activity className="w-3.5 h-3.5 animate-pulse text-emerald-400" />
-          <span>FPS: {fps}</span>
+        {/* Real-Time Engine HUD Overlay */}
+        <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2 pointer-events-none select-none">
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-emerald-400 shadow-lg">
+            <Activity className="w-3.5 h-3.5 animate-pulse text-emerald-400" />
+            <span>FPS: {fps}</span>
+          </div>
+
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-sky-400">
+            <Cpu className="w-3.5 h-3.5 text-sky-400" />
+            <span>Nodes: {particleCount}</span>
+          </div>
+
+          <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-purple-400">
+            <Zap className="w-3.5 h-3.5 text-purple-400" />
+            <span>Mode: {canvasMode.toUpperCase()}</span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-sky-400">
-          <Cpu className="w-3.5 h-3.5 text-sky-400" />
-          <span>Nodes: {particleCount}</span>
-        </div>
+        {/* Interactive Controls Pill */}
+        <div className="absolute bottom-4 right-4 flex items-center gap-2">
+          <button
+            onClick={toggleMode}
+            className="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 text-xs font-mono text-slate-200 backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-md flex items-center gap-2 cursor-pointer"
+            title="Switch Canvas Graphics Pipeline"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            Pipeline: {canvasMode}
+          </button>
 
-        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-purple-400">
-          <Zap className="w-3.5 h-3.5 text-purple-400" />
-          <span>Mode: {canvasMode.toUpperCase()}</span>
+          <button
+            onClick={() => setParticleCount((c) => (c === 65 ? 120 : c === 120 ? 35 : 65))}
+            className="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 text-xs font-mono text-slate-200 backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+            title="Adjust Node Density"
+          >
+            Density: {particleCount}
+          </button>
         </div>
       </div>
 
-      {/* Interactive Controls Pill */}
-      <div className="absolute bottom-4 right-4 flex items-center gap-2">
-        <button
-          onClick={toggleMode}
-          className="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 text-xs font-mono text-slate-200 backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-md flex items-center gap-2"
-          title="Switch Canvas Graphics Pipeline"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          Pipeline: {canvasMode}
-        </button>
-
-        <button
-          onClick={() => setParticleCount((c) => (c === 65 ? 120 : c === 120 ? 35 : 65))}
-          className="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 text-xs font-mono text-slate-200 backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-md"
-          title="Adjust Node Density"
-        >
-          Density: {particleCount}
-        </button>
-      </div>
-
-      {/* Subtle Hint on hover */}
-      <div className="absolute bottom-4 left-4 pointer-events-none text-[11px] font-mono text-slate-400/80 bg-slate-950/60 px-2.5 py-1 rounded backdrop-blur border border-slate-800">
-        Interactive Canvas 2D Pipeline • Move cursor to manipulate gravity & topology
+      {/* Separate HTML element below the canvas */}
+      <div className="flex items-center justify-between px-2 text-xs font-mono text-slate-400">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+          <span>Interactive Canvas 2D Pipeline • Move cursor to manipulate gravity & topology</span>
+        </div>
       </div>
     </div>
   );
