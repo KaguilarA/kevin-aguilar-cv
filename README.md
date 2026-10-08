@@ -1,32 +1,43 @@
-# React + TypeScript + Vite
+# Kevin Aguilar — Senior Frontend Engineer & Systems Architect CV Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+High-performance, futuristic portfolio & interactive CV application built with React 19, TypeScript, Tailwind CSS, HTML5 Canvas 2D engine, and native Web Audio API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Automated Deployment with GitHub Actions
 
-## React Compiler
+This repository includes a pre-configured GitHub Actions workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) that builds and deploys the site to **GitHub Pages** on every push to `main`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Steps to Publish:
 
-## Expanding the Oxlint configuration
+1. **Create a new repository on GitHub**:
+   - Go to [GitHub New Repository](https://github.com/new).
+   - Name it `cv` or `portfolio` (or `kaguilara.github.io` for a user-root domain).
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+2. **Connect remote & push**:
+   ```bash
+   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git branch -M main
+   git push -u origin main
+   ```
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+3. **Enable GitHub Pages in GitHub settings**:
+   - In your GitHub repository, navigate to **Settings** > **Pages**.
+   - Under **Build and deployment** > **Source**, select **GitHub Actions**.
+
+The workflow will trigger immediately, build the bundle with Node 22, and publish your CV live!
+
+---
+
+## 🛠 Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
+
+# Run production build & verify TypeScript
+npm run build
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
