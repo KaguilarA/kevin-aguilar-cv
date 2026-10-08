@@ -1,4 +1,4 @@
-import type { Experience, ArchitectureItem, SkillCategory, Certification, GameProject } from '../types/resume';
+import type { Experience, ArchitectureItem, SkillCategory, Certification, GameProject, OpenSourceLibrary } from '../types/resume';
 
 export const PERSONAL_INFO = {
   name: 'Kevin Aguilar',
@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   email: 'kevin.231@hotmail.com',
   phone: '+506 6444-5188',
   linkedin: 'https://linkedin.com/in/kaguilara',
-  github: 'https://github.com/kaguilara',
+  github: 'https://github.com/KaguilarA',
   summary:
     'Senior Frontend Software Engineer with 8+ years of engineering across the modern JavaScript ecosystem. Specializing in high-performance React & Angular architectures, fine-grained reactivity, real-time Canvas/WebGL rendering engines, enterprise component design systems, and distributed Micro-Frontends. Proven track record of bridging low-level performance profiling with clean, scalable product architecture.',
   languages: [
@@ -359,3 +359,69 @@ export const COINBOX_GAMES: GameProject[] = [
     background: 'https://cdn.coinboxstudio.com/landing/instantKenoStarCard.jpg',
   },
 ];
+
+export const OPEN_SOURCE_LIBRARIES: OpenSourceLibrary[] = [
+  {
+    id: 'reactive-values',
+    name: 'Reactive Values',
+    packageName: 'reactive-values',
+    category: 'State & Signals Architecture',
+    description:
+      'A lightweight, zero-dependency JavaScript & TypeScript library designed to provide a fine-grained reactivity system. Define atomic reactive signals (SignalValue), observe dependency changes with automatic listener dispatch, and compose memoized computed values (ComputedValue) with minimal overhead.',
+    githubUrl: 'https://github.com/KaguilarA/Reactive-Values',
+    npmUrl: 'https://www.npmjs.com/package/reactive-values',
+    docsUrl: 'https://kaguilara.github.io/Reactive-Values/',
+    installCmd: 'npm install reactive-values',
+    tags: ['Signals', 'Reactivity', 'TypeScript', 'Zero-Dependency', 'Computed Values', 'Effects'],
+    features: [
+      'SignalValue primitive with surgical subscriptions and fine-grained updates',
+      'ComputedValue with memoized re-evaluations and topological dependency tracking',
+      'Automatic dependency graph tracking via .effect() listeners',
+      'Zero external runtime dependencies with 100% strict TypeScript types',
+    ],
+    codeSample: `import { SignalValue, ComputedValue } from "reactive-values";
+
+// 1. Create a reactive signal
+const counter = SignalValue(0);
+
+// 2. Derive computed state
+const double = ComputedValue(() => counter.get() * 2);
+
+// 3. Listen to changes with automatic dependency tracking
+counter.effect((val) => {
+  console.log("Count:", val, "Double:", double.get());
+});
+
+// 4. Update the signal
+counter.set(10); // Logs: Count: 10 Double: 20`,
+  },
+  {
+    id: 'owl-expressjs-utils',
+    name: 'owl-expressjs-utils',
+    packageName: 'owl-expressjs-utils',
+    category: 'Backend, Cloud & Security Architecture',
+    description:
+      'Enterprise-grade reusable TypeScript utilities for building scalable Express.js applications backed by MongoDB and Mongoose. Provides composable building blocks for MongoDB connection management, session authentication, AES-256-GCM encryption, bcrypt hashing, and automated CRUD model/controller factories.',
+    githubUrl: 'https://github.com/KaguilarA/owl-expressjs-utils',
+    npmUrl: 'https://www.npmjs.com/package/owl-expressjs-utils',
+    installCmd: 'npm install owl-expressjs-utils',
+    tags: ['Express.js', 'TypeScript', 'Node.js 24+', 'MongoDB', 'Mongoose', 'AES-256-GCM', 'Bcrypt'],
+    features: [
+      'Generic Mongoose model factories with built-in CRUD, population, search, and pagination',
+      'Session-based authentication middleware & CORS origin allowlist governance',
+      'Hardware-accelerated AES-256-GCM encryption and bcrypt password security',
+      'Express controller & entity factories for standardized production REST endpoints',
+    ],
+    codeSample: `import { createModel, createEntityController } from "owl-expressjs-utils";
+
+// 1. Generic model factory with pagination & search
+const UserModel = createModel("User", userSchema);
+
+// 2. Standardized REST controller with automatic error handling
+const userController = createEntityController(UserModel);
+
+// 3. Mount directly to Express app
+app.use("/api/users", userController.router);`,
+  },
+];
+

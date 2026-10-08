@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Copy, Check, FileJson } from 'lucide-react';
-import { PERSONAL_INFO, EXPERIENCES, ARCHITECTURE_SHOWCASE, SKILL_CATEGORIES, CERTIFICATIONS } from '../data/resumeData';
+import { PERSONAL_INFO, EXPERIENCES, ARCHITECTURE_SHOWCASE, SKILL_CATEGORIES, CERTIFICATIONS, OPEN_SOURCE_LIBRARIES, COINBOX_GAMES } from '../data/resumeData';
 import { soundFx } from '../utils/soundEffects';
 
 interface JsonViewModalProps {
@@ -18,6 +18,8 @@ export const JsonViewModal: React.FC<JsonViewModalProps> = ({ isOpen, onClose })
     basics: PERSONAL_INFO,
     work: EXPERIENCES,
     architectures: ARCHITECTURE_SHOWCASE,
+    openSourcePackages: OPEN_SOURCE_LIBRARIES,
+    shippedGames: COINBOX_GAMES,
     skills: SKILL_CATEGORIES,
     education: CERTIFICATIONS,
   };

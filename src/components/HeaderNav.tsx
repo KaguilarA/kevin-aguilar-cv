@@ -1,5 +1,6 @@
 import React from 'react';
 import { Terminal, Volume2, VolumeX, FileJson, Printer } from 'lucide-react';
+import { GithubIcon } from './icons/GithubIcon';
 import { soundFx } from '../utils/soundEffects';
 
 interface HeaderNavProps {
@@ -19,10 +20,11 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
 }) => {
   const navLinks = [
     { id: 'architecture', label: 'Architecture' },
+    { id: 'libraries', label: 'Libraries' },
     { id: 'games', label: 'Games' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
-    { id: 'profiler', label: 'Live Profiler' },
+    { id: 'profiler', label: 'Profiler' },
     { id: 'certifications', label: 'Education' },
   ];
 
@@ -97,6 +99,17 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           >
             <FileJson className="w-4 h-4" />
           </button>
+
+          {/* GitHub Profile */}
+          <a
+            href="https://github.com/KaguilarA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition-colors"
+            title="GitHub Profile (KaguilarA)"
+          >
+            <GithubIcon className="w-4 h-4" />
+          </a>
 
           {/* Quick Print CV */}
           <button

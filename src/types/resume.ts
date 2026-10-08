@@ -48,7 +48,22 @@ export interface GameProject {
   title: string;
   type: 'Slot' | 'Scratch' | 'Keno';
   background: string;
-  previewUrl?: string;
   lines?: number;
+  previewUrl?: string;
   featured?: boolean;
+}
+
+export interface OpenSourceLibrary {
+  id: string;
+  name: string;
+  packageName: string;
+  description: string;
+  githubUrl: string;
+  npmUrl: string;
+  docsUrl?: string;
+  category: string;
+  installCmd: string;
+  tags: string[];
+  features: string[];
+  codeSample: string;
 }

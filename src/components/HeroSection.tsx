@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/resumeData';
 import { Mail, Phone, MapPin, Download, Check, Terminal, ExternalLink, ArrowRight } from 'lucide-react';
 import { soundFx } from '../utils/soundEffects';
+import { GithubIcon } from './icons/GithubIcon';
 
 interface HeroSectionProps {
   onOpenCommandPalette: () => void;
@@ -86,6 +87,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <ArrowRight className="w-4 h-4" />
           </button>
 
+          <a
+            href={PERSONAL_INFO.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <GithubIcon className="w-4 h-4 text-cyan-400" />
+            <span>GitHub Profile</span>
+          </a>
+
+          <a
+            href={PERSONAL_INFO.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span>LinkedIn</span>
+            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+          </a>
+
           <button
             onClick={handleCopyEmail}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -103,16 +124,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <Download className="w-4 h-4 text-purple-400" />
             <span>Export CV (Print/PDF)</span>
           </button>
-
-          <a
-            href={PERSONAL_INFO.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
-          >
-            <span>LinkedIn</span>
-            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-          </a>
         </div>
 
         {/* Executive Stats Row */}

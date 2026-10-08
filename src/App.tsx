@@ -3,6 +3,7 @@ import { HeaderNav } from './components/HeaderNav';
 import { HeroSection } from './components/HeroSection';
 import { InteractiveCanvas } from './components/InteractiveCanvas';
 import { ArchitectureShowcase } from './components/ArchitectureShowcase';
+import { LibrariesShowcase } from './components/LibrariesShowcase';
 import { GamesShowcase } from './components/GamesShowcase';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { SkillsMatrix } from './components/SkillsMatrix';
@@ -87,6 +88,9 @@ export function App() {
 
         {/* Systems Architecture Showcase */}
         <ArchitectureShowcase />
+
+        {/* Authored Open-Source Libraries (Reactive-Values & owl-expressjs-utils) */}
+        <LibrariesShowcase />
 
         {/* Shipped Games Showcase (Konceptik & CoinBox Studio) */}
         <GamesShowcase />

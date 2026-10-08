@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Terminal, ArrowRight, X, Volume2, Sparkles, FileText, Mail, ExternalLink, Code, Gamepad2 } from 'lucide-react';
+import { Search, Terminal, ArrowRight, X, Volume2, Sparkles, FileText, Mail, ExternalLink, Code, Gamepad2, Package } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { soundFx } from '../utils/soundEffects';
+import { GithubIcon } from './icons/GithubIcon';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -50,6 +51,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       icon: <Terminal className="w-4 h-4 text-purple-400" />,
       action: () => onSelectSection('architecture'),
       shortcut: 'G A',
+    },
+    {
+      id: 'nav-libraries',
+      label: 'Explore Authored Open-Source Libraries (Reactive-Values & owl-utils)',
+      category: 'Navigation',
+      icon: <Package className="w-4 h-4 text-cyan-400" />,
+      action: () => onSelectSection('libraries'),
+      shortcut: 'G L',
     },
     {
       id: 'nav-games',
@@ -143,12 +152,44 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       action: onToggleSound,
     },
     {
+      id: 'action-github',
+      label: 'Open GitHub Profile (github.com/KaguilarA)',
+      category: 'Actions',
+      icon: <GithubIcon className="w-4 h-4 text-cyan-400" />,
+      action: () => {
+        window.open('https://github.com/KaguilarA', '_blank');
+      },
+      shortcut: 'G H',
+    },
+    {
       id: 'action-linkedin',
       label: 'Open LinkedIn Profile (linkedin.com/in/kaguilara)',
       category: 'Actions',
       icon: <ExternalLink className="w-4 h-4 text-blue-400" />,
       action: () => {
         window.open('https://linkedin.com/in/kaguilara', '_blank');
+      },
+    },
+    {
+      id: 'action-copy-reactive-values',
+      label: 'Copy "npm install reactive-values" install command',
+      category: 'Actions',
+      icon: <Package className="w-4 h-4 text-emerald-400" />,
+      action: () => {
+        navigator.clipboard.writeText('npm install reactive-values');
+        soundFx.playSuccess();
+        alert('Copied to clipboard: npm install reactive-values');
+      },
+    },
+    {
+      id: 'action-copy-owl-utils',
+      label: 'Copy "npm install owl-expressjs-utils" install command',
+      category: 'Actions',
+      icon: <Package className="w-4 h-4 text-rose-400" />,
+      action: () => {
+        navigator.clipboard.writeText('npm install owl-expressjs-utils');
+        soundFx.playSuccess();
+        alert('Copied to clipboard: npm install owl-expressjs-utils');
       },
     },
   ];

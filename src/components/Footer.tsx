@@ -101,12 +101,12 @@ export const Footer: React.FC = () => {
               <ExternalLink className="w-3 h-3" />
             </a>
             <a
-              href="https://github.com/kaguilara"
+              href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white mt-1 flex items-center gap-1"
             >
-              <span>GitHub</span>
+              <span>GitHub (KaguilarA)</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
