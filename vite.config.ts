@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/kaguilara_CV/',
+  base: '/kevin-aguilar-cv/',
   plugins: [
     react(),
     tailwindcss(),
